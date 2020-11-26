@@ -4,14 +4,6 @@
 <?php
     session_start();
     
-//     if ($this->db->query('select * from user_details'))
-// {
-//         echo "Success!";
-// }
-// else
-// {
-//         echo "Query failed!";
-// }
     $email ='';
     $passErr = $emailErr = '';
     $u_email = $pass = '';
@@ -70,11 +62,11 @@
             $row =  $result->result();
             // $count = mysqli_num_rows($result);
             $count = $result->num_rows();
-            echo $count;
             $slquery = "SELECT name FROM user_details WHERE email = '$u_email' AND password = '$pass'";
             $result1 = $this->db->query($slquery); // mysqli_query($conn,$slquery);
             // $row1 = mysqli_fetch_array($result1,MYSQLI_ASSOC);
-            $row1 = $result1->result_array();
+            $row1 = $result1->row_array();
+            
             if($count == 1) 
             {
                 $name= $row1['name'];
