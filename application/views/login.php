@@ -52,19 +52,16 @@
         if($flag == true)
         {
             $this->db->close();
-            // mysqli_close($conn);
+           
         }
         else
         {
             $query = "SELECT * FROM user_details WHERE email = '$u_email' AND password = '$pass' ";
             $result = $this->db->query($query);
-            // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
             $row =  $result->result();
-            // $count = mysqli_num_rows($result);
             $count = $result->num_rows();
             $slquery = "SELECT name FROM user_details WHERE email = '$u_email' AND password = '$pass'";
-            $result1 = $this->db->query($slquery); // mysqli_query($conn,$slquery);
-            // $row1 = mysqli_fetch_array($result1,MYSQLI_ASSOC);
+            $result1 = $this->db->query($slquery); 
             $row1 = $result1->row_array();
             
             if($count == 1) 
@@ -81,7 +78,6 @@
                 echo '</script>';  
                     
                 $this->db->close();
-                // mysqli_close($conn);
             }
             else
             {
