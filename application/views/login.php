@@ -69,7 +69,8 @@
             // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
             $row =  $result->result();
             // $count = mysqli_num_rows($result);
-            $count = $result->result();
+            $count = $result->num_rows();
+            echo $count;
             $slquery = "SELECT name FROM user_details WHERE email = '$u_email' AND password = '$pass'";
             $result1 = $this->db->query($slquery); // mysqli_query($conn,$slquery);
             // $row1 = mysqli_fetch_array($result1,MYSQLI_ASSOC);
@@ -84,7 +85,7 @@
                 echo 'alert("LOGIN SUCCESSFULLY!")';
                 echo'</script>';
                 echo '<script language="javascript">';
-                echo 'window.location.href = "index.php"';
+                echo 'window.location.href = "/gohub"';
                 echo '</script>';  
                     
                 $this->db->close();
