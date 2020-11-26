@@ -2,8 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Gohubs extends CI_Controller{
     public function index(){
-        // $conn = 'mysql:host=localhost;dbname=static_pages';
-        // $this->load->database($conn);
+        $this->load->database();
         $this->load->helper('url');
         $this->load->view('head');
         $this->load->view('index');
