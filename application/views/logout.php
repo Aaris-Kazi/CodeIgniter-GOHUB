@@ -7,7 +7,7 @@ if(isset($_SERVER['HTTP_REFERER']))
 } 
 else 
 {
-    header('Location: index.php');  
+    header('Location: /gohub');  
 }
 exit;  
 ?>

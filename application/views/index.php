@@ -55,7 +55,7 @@ session_start();
 							</a>
 							</li>
 							<li>
-								<a href="index.php/login">
+								<a href="index.php/logout">
 									<button class="logout">LOGOUT</button>
 								</a>
 							</li>
