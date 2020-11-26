@@ -3,9 +3,15 @@
     
 <?php
     session_start();
-    // include 'head.php';
-    // include 'connect.php';
-    $this->load->database();
+    
+//     if ($this->db->query('select * from user_details'))
+// {
+//         echo "Success!";
+// }
+// else
+// {
+//         echo "Query failed!";
+// }
     $email ='';
     $passErr = $emailErr = '';
     $u_email = $pass = '';
@@ -53,18 +59,21 @@
         }
         if($flag == true)
         {
-            mysqli_close($conn);
+            $this->db->close();
+            // mysqli_close($conn);
         }
         else
         {
-            $query = "SELECT * FROM user_details WHERE email = '$u_email' AND password ='$pass'";
+            $query = "SELECT * FROM user_details WHERE email = '$u_email' AND password = '$pass' ";
             $result = $this->db->query($query);
-            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-            $count = mysqli_num_rows($result);
+            // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+            $row =  $result->result();
+            // $count = mysqli_num_rows($result);
+            $count = $result->result();
             $slquery = "SELECT name FROM user_details WHERE email = '$u_email' AND password = '$pass'";
-            $result1 = mysqli_query($conn,$slquery);
-            $row1 = mysqli_fetch_array($result1,MYSQLI_ASSOC);
-            
+            $result1 = $this->db->query($slquery); // mysqli_query($conn,$slquery);
+            // $row1 = mysqli_fetch_array($result1,MYSQLI_ASSOC);
+            $row1 = $result1->result_array();
             if($count == 1) 
             {
                 $name= $row1['name'];
@@ -78,7 +87,8 @@
                 echo 'window.location.href = "index.php"';
                 echo '</script>';  
                     
-                mysqli_close($conn);
+                $this->db->close();
+                // mysqli_close($conn);
             }
             else
             {

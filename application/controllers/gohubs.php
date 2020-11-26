@@ -9,6 +9,7 @@ class Gohubs extends CI_Controller{
         $this->load->view('index');
     }
     public function login(){
+        $this->load->database();
         $this->load->helper('url');
         $this->load->view('head');
         $this->load->view('login');
@@ -19,11 +20,13 @@ class Gohubs extends CI_Controller{
         $this->load->view('logout');
     }
     public function register(){
+        $this->load->database();
         $this->load->helper('url');
         $this->load->view('head');
         $this->load->view('register');
     }
     public function search(){
+        $this->load->database();
         $this->load->helper('url');
         $this->load->view('head');
         $this->load->view('search');
