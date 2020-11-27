@@ -1,6 +1,5 @@
 <?php
     session_start();
-    // include 'connect.php';
      $nameErr = $passErr = $emailErr = "";
      $name =  $email = $pass = "";
      $flag = false;
@@ -53,15 +52,17 @@
 
         if($flag == true)
         {
-            mysqli_close($conn);
+            $this->db->close();
         }
         else
         {
             $_SESSION['u_email'] = $email;
             $_SESSION['u_name_reg'] = $name;
             $slquery = "SELECT * FROM user_details WHERE email = '$email'";
-            $selectresult = mysqli_query($conn,$slquery);
-            if(mysqli_num_rows($selectresult)>0)
+            $selectresult = $this->db->query($slquery);
+            // $selectresult = mysqli_query($conn,$slquery);
+            $count = $selectresult->num_rows($selectresult);
+            if($count >0)
             {
                 $_SESSION['register'] = false;
                 $_SESSION['u_email'] = $email;
@@ -71,11 +72,12 @@
                 echo '<script language="javascript">';
                 echo 'window.location.href = "login"';
                 echo '</script>';  
-                mysqli_close($conn);
+                $this->db->close();
             }
 
             $sql = "INSERT INTO user_details (name, email, password) VALUES ('$name','$email','$pass')";
-            $query = mysqli_query($conn,$sql);
+            // $query = mysqli_query($conn,$sql);
+            $query = $this->db->query($sql);
             $_SESSION['u_email'] = $email;
             if ($query == TRUE) 
             {
