@@ -121,7 +121,7 @@
 									echo'<div class="text-area">';
 									echo '
 									<div class="lazy-image">
-										<img class="lazy-places" src="places/'.$pic.'.jpg" height=222 widht=222  draggable="false">
+										<img class="lazy-places" src="'.base_url('places/'.$pic.'.jpg').' " height=222 widht=222  draggable="false">
 									</div>
 									';
 									echo'<div class="hotel-details">';
@@ -133,7 +133,7 @@
 											{
 												echo'
 												<span class="star-icon">
-													<img src="templates/star.png" height="11" width="11" tabindex="1">
+													<img src="'.base_url('templates/star.png').'" height="11" width="11" tabindex="1">
 												</span>
 												';
 											}
@@ -142,7 +142,7 @@
 									echo '<p class="accomodation-type">'.$accomo.'</p>
 											</div>
 											<div class="popularity">
-												<button type="button" class="flairs" disabled><img src="templates/fire.png" height="24" width="24" tabindex="1"> Hot Property</button>
+												<button type="button" class="flairs" disabled><img src="'.base_url('templates/fire.png').'" height="24" width="24" tabindex="1"> Hot Property</button>
 											</div>
 										</div>
 									</div>
@@ -156,8 +156,8 @@
 									';
 									echo'
 									<div class="accomodation-price">
-									<span class="rokda" name = "price" id = "price" value = "'.$rokda.'"><img src="templates/rupiyaa.png" height="15" width="15" > '.$rokda.'</span>
-									<button id="'.$id.'" class="view-deals" type = "submit" name ="BOOKING" >View Deal  <img src="templates/white-chevron.png" height="13" width="13"></button>
+									<span class="rokda" name = "price" id = "price" value = "'.$rokda.'"><img src="'.base_url('templates/rupiyaa.png').'" height="15" width="15" > '.$rokda.'</span>
+									<button id="'.$id.'" class="view-deals" type = "submit" name ="BOOKING" >View Deal  <img src="'.base_url('templates/white-chevron.png').'" height="13" width="13"></button>
 									<input type="hidden" name="pid" value="'.$id.'">
 									</div>
 									';
