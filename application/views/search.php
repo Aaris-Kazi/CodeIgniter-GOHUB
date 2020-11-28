@@ -86,14 +86,7 @@
 							$today= date('Y-m-d');
 							$new= strtotime($today);
 							$new_date = date('d-m-y', $new);
-							// echo '<span class ="info">'.$new_date.'</span>';
-							// echo '<span class ="info">'.$init_date.'</span>';
-							// echo '<span class ="info">'.$final_date.'</span>';
-							// echo '<span class ="info">'.$room.'</span>';
-							if($init_date == $today)
-							{
-								// echo 'its a match ';
-							}
+							
 							
 							echo'
 							<h1 class="banner-of-place">
@@ -111,16 +104,18 @@
 							{
 								$place = $_POST['places'];
 								$query = "select * from hotels where trip_place = '$place'";
-								$result =  mysqli_query($conn, $query);
-								while($row = mysqli_fetch_array($result))
+								$result = $this->db->query($query);
+								// $result =  mysqli_query($conn, $query);
+								// while($row = mysqli_fetch_array($result))
+								foreach($result->result_array() as $row)
 								{
-									$id = $row[0];
-									$pic = $row[2];
-									$hotel = $row[3]; 
-									$rating = $row[4];
-									$accomo = $row[5];
-									$deal = $row[6];
-									$rokda = $row[7];
+									$id = $row['uid'];
+									$pic = $row['pic_hotel'];
+									$hotel = $row['hotels']; 
+									$rating = $row['ratings'];
+									$accomo = $row['Accommodation'];
+									$deal = $row['Deal'];
+									$rokda = $row['price'];
 									echo '<article class="article-class">';
 									echo '<form method ="POST" action ="confirmation.php">';
 									echo'<div class="text-area">';
