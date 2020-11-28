@@ -34,7 +34,7 @@ if(isset($_POST['BOOKING']))
     else
     {
         echo 'PLease login ';
-        header('Location: login.php');
+        header('Location: login');
     }
 }
 
