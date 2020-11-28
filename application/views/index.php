@@ -1,12 +1,10 @@
 <?php
 session_start();
-// include 'connect.php';
 ?>
 <!DOCTYPE html>
 <html>
 
 <?php
-	// include 'head.php';
 	echo "<title>GoHub</title>";
 ?>
 <body>
@@ -86,53 +84,52 @@ session_start();
 				</div>
 			</div>
 			<?php
-			// if(isset($_SESSION['login']))
-			// {
-			// 	$today = date('Y-m-d');
-			// 		$name =  $_SESSION['login_user_name'];
-			// 		$query = "SELECT * FROM booking WHERE user_name = '$name'";
-			// 		// $result = mysqli_query($conn, $query);
-			// 		$result = $this->db->query($query);
-			// 		while($row = $result->row_array())
-			// 		{
-			// 			$hotel = $row['location'];
-			// 			$init_date = $row['hotel'];
-			// 			$final_date = $row['init_date'];
-			// 			$room = $row['final_date'];
-			// 			$price = $row['room'];
-			// 			$pic = $row['price'];
-			// 			if($today >= $final_date)
-			// 			{
-			// 				continue;
-			// 			}
-			// 			else
-			// 			{
-			// 				echo '
-			// 				<article class="booking-confirm">
-			// 					<div class="booking-area">
-			// 						<div class="booking-images">
-			// 							<img class="booking-places" src="places/'.$pic.'.jpg"  draggable="false">
-			// 						</div>
-			// 						<div class="booking-discrip">
-			// 							<h3 class="booking-hotel-name">'.$hotel.'</h3>
-			// 							<div class="book-date"><span>From: '.$init_date.'</span></div>
-			// 							<div class="book-date"><span>Till: '.$final_date.'</span></div>
-			// 						</div>
+			if(isset($_SESSION['login']))
+			{
+				$today = date('Y-m-d');
+					$name =  $_SESSION['login_user_name'];
+					$query = "SELECT * FROM booking WHERE user_name = '$name'";
+					$results = $this->db->query($query);
+					foreach($results->result_array() as $row)
+					{
+						$hotel = $row['location'];
+						$init_date = $row['hotel'];
+						$final_date = $row['init_date'];
+						$room = $row['final_date'];
+						$price = $row['room'];
+						$pic = $row['price'];
+						if($today >= $final_date)
+						{
+							continue;
+						}
+						else
+						{
+							echo '
+							<article class="booking-confirm">
+								<div class="booking-area">
+									<div class="booking-images">
+										<img class="booking-places" src="places/'.$pic.'.jpg"  draggable="false">
+									</div>
+									<div class="booking-discrip">
+										<h3 class="booking-hotel-name">'.$hotel.'</h3>
+										<div class="book-date"><span>From: '.$init_date.'</span></div>
+										<div class="book-date"><span>Till: '.$final_date.'</span></div>
+									</div>
 
-			// 						<div class="booking-status">
-			// 							<div class="book-room"><span>'.$room.'</span></div>
-			// 							<div class="booking-price">
-			// 								<span class="rokda"><img src="templates/rupiyaa.png" height="15" width="15"> '.$price.'</span>
-			// 							</div>
-			// 							<button class="status-button" disabled="disabled">Booked </button>
-			// 						</div>
-			// 					</div>
-			// 				</article>
-			// 				';
-			// 			}
+									<div class="booking-status">
+										<div class="book-room"><span>'.$room.'</span></div>
+										<div class="booking-price">
+											<span class="rokda"><img src="templates/rupiyaa.png" height="15" width="15"> '.$price.'</span>
+										</div>
+										<button class="status-button" disabled="disabled">Booked </button>
+									</div>
+								</div>
+							</article>
+							';
+						}
 						
-			// 		}
-			// }
+					}
+			}
 			?>
 			
 		</div>
