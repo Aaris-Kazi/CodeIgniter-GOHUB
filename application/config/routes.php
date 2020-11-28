@@ -55,5 +55,6 @@ $route['login'] = 'gohubs/login';
 $route['logout'] = 'gohubs/logout';
 $route['register'] = 'gohubs/register';
 $route['search'] = 'gohubs/search';
+$route['confirming'] = 'gohubs/confirming';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

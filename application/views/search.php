@@ -117,7 +117,7 @@
 									$deal = $row['Deal'];
 									$rokda = $row['price'];
 									echo '<article class="article-class">';
-									echo '<form method ="POST" action ="confirmation.php">';
+									echo '<form method ="POST" action ="confirming">';
 									echo'<div class="text-area">';
 									echo '
 									<div class="lazy-image">

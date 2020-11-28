@@ -30,6 +30,12 @@ class Gohubs extends CI_Controller{
         $this->load->view('head');
         $this->load->view('search');
     }
+    public function confirming(){
+        $this->load->database();
+        $this->load->helper('url');
+        $this->load->view('head');
+        $this->load->view('confirmation');
+    }
 }
 
 ?>
