@@ -96,8 +96,8 @@ session_start();
 						$init_date = $row['hotel'];
 						$final_date = $row['init_date'];
 						$room = $row['final_date'];
-						$price = $row['room'];
-						$pic = $row['price'];
+						$price = $row['price'];
+						$pic = $row['pic_hotel'];
 						if($today >= $final_date)
 						{
 							continue;
